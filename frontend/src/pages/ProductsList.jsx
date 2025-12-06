@@ -45,7 +45,7 @@ function ProductList() {
                     value={search}
                     onChange={(e) => {
                         setSearch(e.target.value);
-                        setPage(1); // reset page when searching
+                        setPage(1);
                     }}
                 />
 
@@ -53,7 +53,7 @@ function ProductList() {
                     value={category}
                     onChange={(e) => {
                         setCategory(e.target.value);
-                        setPage(1); // reset page when filtering
+                        setPage(1);
                     }}
                 >
                     <option value="">All Categories</option>
