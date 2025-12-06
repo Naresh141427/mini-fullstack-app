@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
 
         const schemaPath = path.join(process.cwd(), "backend", "schema.sql");
         const schema = fs.readFileSync(schemaPath, "utf-8");
-
+        console.log("Schema file path:", schemaPath);
         const statements = schema
             .split(";")
             .map(s => s.trim())
