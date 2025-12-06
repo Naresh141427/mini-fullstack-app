@@ -1,0 +1,39 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.log
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Vite cache
+.vite/
+
+# Editor folders
+.vscode/
+.idea/
+
+# SQLite database files (if any)
+*.db
+
+# Do NOT ignore these — IMPORTANT FOR ASSIGNMENT
+# schema.sql
+# seed.js
+# seedData.js
