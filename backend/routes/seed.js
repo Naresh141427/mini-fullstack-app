@@ -8,7 +8,8 @@ const products = require("../seedData");
 router.get("/", async (req, res) => {
     try {
 
-        const schema = fs.readFileSync(path.join(__dirname, "../schema.sql"), "utf-8");
+        const schemaPath = path.join(process.cwd(), "backend", "schema.sql");
+        const schema = fs.readFileSync(schemaPath, "utf-8");
 
         const statements = schema
             .split(";")
@@ -19,11 +20,10 @@ router.get("/", async (req, res) => {
             await pool.query(stmt);
         }
 
-
         const insertQuery = `
-      INSERT INTO products (name, category, short_desc, long_desc, price, image_url)
-      VALUES (?, ?, ?, ?, ?, ?)
-    `;
+            INSERT INTO products (name, category, short_desc, long_desc, price, image_url)
+            VALUES (?, ?, ?, ?, ?, ?)
+        `;
 
         for (const p of products) {
             await pool.query(insertQuery, [
@@ -38,8 +38,8 @@ router.get("/", async (req, res) => {
 
         res.send("Database seeded successfully!");
     } catch (err) {
-        console.error(err);
-        res.status(500).send("Seeding failed: " + err.message);
+        console.error("SEED ERROR:", err);
+        res.status(500).send("Error during seeding: " + err.message);
     }
 });
 
