@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const productsRouter = require('./routes/products');
 const enquiriesRouter = require('./routes/enquiries');
-const seedRoute = require("./routes/seed");
+
 const app = express();
 
 app.use(cors());
@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/products', productsRouter);
 app.use('/api/enquiries', enquiriesRouter);
-app.use("/api/seed", seedRoute);
+
 
 app.use((err, req, res, next) => {
     console.error('Unhandled error:', err);
